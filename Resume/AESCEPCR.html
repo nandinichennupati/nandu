@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6a00;
+            background: linear-gradient(to right, #c1fcd3, #d4b5ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: linear-gradient(to right, #c1fcd3, #d4b5ff);
+            margin-bottom: 30px;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .hero-section,
+        .contact-section,
+        .education-section {
+            padding: 50px 0;
+        }
+
+        .about-section img {
+            max-width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: -50%;
+        }
+
+        #main-title {
+            display: inline-block;
+            opacity: 0;
+            white-space: nowrap;
+        }
+
+        #paragraphs {
+            opacity: 0;
+        }
+
+        .contact-section img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .contact-item {
+            margin-bottom: 15px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content-section {
+            padding-top: 70px;
+        }
+
+        /* Education section styles */
+        .education-details {
+            opacity: 0;
+            margin-top: 10px;
+            transition: opacity 1s ease;
+        }
+
+        .card-title {
+            cursor: pointer;
+            color: #d4b5ff;
+        }
+
+        .card img {
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .education-card {
+            cursor: pointer;
+            color: #d4b5ff;
+        }
+
+        /* Skills section styles */
+        .skills-section .card {
+            margin-bottom: 30px;
+        }
+
+        .skills-details {
+            opacity: 0;
+            margin-top: 10px;
+            transition: opacity 1s ease;
+        }
+
+        /* Experience section styles */
+        .experience-section .card {
+            margin-bottom: 30px;
+        }
+
+        .experience-details {
+            opacity: 0;
+            margin-top: 10px;
+            transition: opacity 1s ease;
+        }
+
+        /* Certifications section styles */
+        .certifications-section .card {
+            margin-bottom: 30px;
+        }
+
+        .certifications-details {
+            opacity: 0;
+            margin-top: 10px;
+            transition: opacity 1s ease;
+        }
+
+        /* Projects section styles */
+        .projects-section .card {
+            margin-bottom: 30px;
+        }
+
+        .projects-details {
+            opacity: 0;
+            margin-top: 10px;
+            transition: opacity 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">NANDINI CHENNUPATI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('about')">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('education')">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('skills')">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('certifications')">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('experience')">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('projects')">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('contact')">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="downloadResume()">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center content-section" id="about">
+        <div class="container">
+            <h1 id="main-title"></h1>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-section content-section" id="about-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\About\main.png" alt="NANDINI CHENNUPATI">
+                </div>
+                <div class="col-md-8">
+                    <div id="paragraphs">
+                        <p>
+                            Hi, I am Nandini, I live in Chicago, Illinois. I recently graduated from Governors State University, with a Master's degree in Information Technology. Currently, I am actively looking for a Full-Time Cyber Security Analyst Role.
+                        </p>
+                        <p>
+                            About me, I'm Expertised in identifying and analyzing suspicious activities, managing sensitive information, and utilizing a wide range of security tools for comprehensive log and packet analysis. Proficient in conducting vulnerability assessments, penetration testing, and malware analysis to ensure the confidentiality, integrity, and availability of systems, networks, and data. Dedicated to safeguarding organizational assets and enhancing security posture through proactive threat detection and mitigation strategies.
+                        </p>
+                        <p>
+                            I got my certification in CompTIA Security+, to demonstrate my commitment to professional growth in the Cybersecurity field. My technical skills include programming languages such as C, C++, Python, Ruby and Java; cybersecurity tools like Wireshark, Metasploit, Burp Suite, and Snort; and methodologies encompassing penetration testing, vulnerability scanning, incident response, and threat modeling. I am also proficient in cloud platforms such as AWS and Microsoft Azure, containerization tools like Docker and Kubernetes.
+                        </p>
+                        <p>
+                            I use this website as a platform to showcase my skills and projects. If you find any Role that suits me, I am open to work and you can connect me via any options listed on "CONTACT ME" option in this site.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education-section content-section" id="education" style="display: none;">
+        <div class="container text-center">
+            <h2 id="education-heading"></h2>
+            <div class="row justify-content-center mt-4">
+                <!-- Governors State University Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Education\GOVST.png" class="card-img-top" alt="Governors State University">
+                        <div class="card-body">
+                            <h5 class="card-title education-card" id="gsu-title" onclick="showGsuDetails()">Governors State University</h5>
+                            <div id="gsu-details" class="education-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- VR Siddhartha Engineering College Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Education\VRSEC.png" class="card-img-top" alt="VR Siddhartha Engineering College">
+                        <div class="card-body">
+                            <h5 class="card-title education-card" id="vrsec-title" onclick="showVrsecDetails()">Velagapudi Ramakrishna Siddhartha Engineering College</h5>
+                            <div id="vrsec-details" class="education-details"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section class="skills-section content-section" id="skills" style="display: none;">
+        <div class="container text-center">
+            <h2 id="skills-heading"></h2>
+            <div class="row justify-content-center mt-4">
+                <h2>TECHNICAL SKILLS</h2>
+            
+                <!-- Skill 1: Programming Languages -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\PL.png" class="card-img-top" alt="Programming Languages">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('pl-details', programmingLanguages)">Programming Languages</h5>
+                            <div id="pl-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill 2: Scripting and Automation -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\SA.png" class="card-img-top" alt="Scripting and Automation">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('sa-details', scriptingAutomation)">Scripting and Automation</h5>
+                            <div id="sa-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill 3: Operating Systems -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\OS.png" class="card-img-top" alt="Operating Systems">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('os-details', operatingSystems)">Operating Systems</h5>
+                            <div id="os-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill 4: Productivity Tools -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\PT.png" class="card-img-top" alt="Productivity Tools">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('pt-details', productivityTools)">Productivity Tools</h5>
+                            <div id="pt-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill 5: Networking and Firewalls -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\NF.png" class="card-img-top" alt="Networking and Firewalls">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('nf-details', networkingFirewalls)">Networking and Firewalls</h5>
+                            <div id="nf-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill 6: Cyber Security Tools -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\CS.png" class="card-img-top" alt="Cyber Security Tools">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('cs-details', cyberSecurityTools)">Cyber Security Tools</h5>
+                            <div id="cs-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill 7: Cloud Platforms -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\CP.png" class="card-img-top" alt="Cloud Platforms">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('cp-details', cloudPlatforms)">Cloud Platforms</h5>
+                            <div id="cp-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill 8: Endpoint Security Protocols -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\ES.png" class="card-img-top" alt="Endpoint Security Protocols">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('es-details', endpointSecurityProtocols)">Endpoint Security Protocols</h5>
+                            <div id="es-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill 9: Security Practices -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\SP.png" class="card-img-top" alt="Security Practices">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showSkillDetails('sp-details', securityPractices)">Security Practices</h5>
+                            <div id="sp-details" class="skills-details"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section content-section" id="certifications" style="display: none;">
+        <div class="container text-center">
+            <h2>CERTIFICATIONS</h2>
+            <div class="row justify-content-center mt-4">
+                <!-- CompTIA Security+ Certification Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Certifications\CSC.png" class="card-img-top" alt="CompTIA Security+ Certification">
+                        <div class="card-body">
+                            <h5 class="card-title certifications-card" id="csc-title" onclick="showCscDetails()">CompTIA Security+ Certification</h5>
+                            <div id="csc-details" class="certifications-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Google CyberSecurity Professional Certification Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Certifications\CC.png" class="card-img-top" alt="Google CyberSecurity Professional Certification">
+                        <div class="card-body">
+                            <h5 class="card-title certifications-card" id="cc-title" onclick="showCcDetails()">Google CyberSecurity Professional Certification</h5>
+                            <div id="cc-details" class="certification-details"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section content-section" id="experience" style="display: none;">
+        <div class="container text-center">
+            <h2>EXPERIENCE</h2>
+            <div class="row justify-content-center mt-4">
+                <!-- Experience 1: Governors State University -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Experience\TA.png" class="card-img-top"
+                            alt="Teaching Assistant">
+                        <div class="card-body">
+                            <h5 class="card-title experience-card" id="gsu-exp-title" onclick="showGsuExpDetails()">Governors
+                                State University</h5>
+                            <div id="gsu-exp-details" class="experience-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience 2: Cognizant Technological Solutions -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Experience\CTS.png" class="card-img-top"
+                            alt="Programmer Analyst Trainee">
+                        <div class="card-body">
+                            <h5 class="card-title experience-card" id="cts-exp-title" onclick="showCtsExpDetails()">Cognizant
+                                Technological Solutions</h5>
+                            <div id="cts-exp-details" class="experience-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience 3: Hindustan Shipyard LTD -->
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Experience\HSL.png" class="card-img-top"
+                            alt="Cyber Security Analyst Intern">
+                        <div class="card-body">
+                            <h5 class="card-title experience-card" id="hsl-exp-title" onclick="showHslExpDetails()">Hindustan
+                                Shipyard LTD</h5>
+                            <div id="hsl-exp-details" class="experience-details"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section content-section" id="projects" style="display: none;">
+        <div class="container text-center">
+            <h2>Projects</h2>
+            <div class="row justify-content-center mt-4">
+                <!-- Fortifying Cloud Ecosystems - Navigating the Multi-Layered Security Paradigm Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Projects\P1.png" class="card-img-top" alt="Fortifying Cloud Ecosystems - Navigating the Multi-Layered Security Paradigm">
+                        <div class="card-body">
+                            <h5 class="card-title projects-card" id="fort-title" onclick="showfortDetails()">Fortifying Cloud Ecosystems - Navigating the Multi-Layered Security Paradigm</h5>
+                            <div id="fort-details" class="projects-details"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Virtual Telepresence Robot for Secure Remote Monitoring Card -->
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Projects\P2.png" class="card-img-top" alt="Virtual Telepresence Robot for Secure Remote Monitoring">
+                        <div class="card-body">
+                            <h5 class="card-title projects-card" id="robot-title" onclick="showrobotDetails()">Virtual Telepresence Robot for Secure Remote Monitoring</h5>
+                            <div id="robot-details" class="projects-details"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section content-section" id="contact">
+        <div class="container text-center">
+            <h2> CONTACT ME</h2>
+            <div class="contact-item">
+                <a href="tel:+13312227737" class="text-light">
+                    <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Contact\Phone.png" alt="Phone Icon">
+                    +1 331-222-7737
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.linkedin.com/in/nandini-chennupati" class="text-light" target="_blank">
+                    <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Contact\LinkedIn.png" alt="LinkedIn Icon">
+                    LinkedIn
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="mailto:naganandini.chennupati@gmail.com" class="text-light">
+                    <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Contact\Gmail.png" alt="Gmail Icon">
+                    naganandini.chennupati@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3">
+        <p>&copy; 2024 Nandini Chennupati. All rights reserved.</p>
+    </footer>
+
+    <!-- Custom Script for Typing Effect, Education, and Skills Section -->
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('about').style.display = sectionId === 'about' ? 'block' : 'none';
+            document.getElementById('about-content').style.display = sectionId === 'about' ? 'block' : 'none';
+            document.getElementById('education').style.display = sectionId === 'education' ? 'block' : 'none';
+            document.getElementById('skills').style.display = sectionId === 'skills' ? 'block' : 'none';
+            document.getElementById('certifications').style.display = sectionId === 'certifications' ? 'block' : 'none';
+            document.getElementById('experience').style.display = sectionId === 'experience' ? 'block' : 'none';
+            document.getElementById('projects').style.display = sectionId === 'projects' ? 'block' : 'none';
+            document.getElementById('contact').style.display = sectionId === 'contact' ? 'block' : 'none';
+        }
+
+        function downloadResume() {
+            window.open("https://drive.google.com/file/d/1z128_v0PPXjo_BWe3QzFW9kVKhc7PNYy/view?usp=drivesdk", "_blank");
+        }
+
+        function showGsuDetails() {
+            const gsuDetails = [
+                "Governors State University - University Park, Illinois",
+                "Master of Information Technology",
+                "From August 2022 To May 2024",
+                "GPA: 3.923/4"
+            ];
+            const gsuDetailsElement = document.getElementById("gsu-details");
+            gsuDetailsElement.innerHTML = "";
+            gsuDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    gsuDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    gsuDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showVrsecDetails() {
+            const vrsecDetails = [
+                "VR Siddhartha Engineering College - Vijayawada, India",
+                "Bachelor of Electronics and Instrumentation Engineering",
+                "From June 2017 To May 2021",
+                "CGPA: 7.72/10"
+            ];
+            const vrsecDetailsElement = document.getElementById("vrsec-details");
+            vrsecDetailsElement.innerHTML = "";
+            vrsecDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    vrsecDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    vrsecDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showfortDetails() {
+            const fortDetails = [
+                "Project Overview:",
+                "The Fortifying Cloud Ecosystems project is centered around enhancing the security of cloud environments by implementing a comprehensive, multi-layered security framework. As organizations increasingly rely on cloud infrastructures, ensuring the protection of sensitive data and critical assets has become paramount. This project aims to navigate the complexities of cloud security by integrating advanced cybersecurity measures at every layer of the cloud ecosystem, from infrastructure to application."
+            ];
+            const fortDetailsElement = document.getElementById("fort-details");
+            fortDetailsElement.innerHTML = "";
+            fortDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    fortDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    fortDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showrobotDetails() {
+            const robotDetails = [
+                "Project Overview:",
+                "The Virtual Telepresence Robot project is designed to provide secure, real-time remote monitoring capabilities through a Python-based telepresence system. The robot is integrated with advanced cybersecurity features to ensure the confidentiality, integrity, and availability of the data it processes and transmits. Additionally, cloud technologies are leveraged to enable scalable and reliable access to the robot's controls and video feeds, ensuring users can securely operate the robot from any location."
+            ];
+            const robotDetailsElement = document.getElementById("robot-details");
+            robotDetailsElement.innerHTML = "";
+            robotDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    robotDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    robotDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showCscDetails() {
+            const cscDetails = [
+                "CompTiA Security+ CE Certification by CompTIA",
+                "Issed: August 2024 ",
+                "Experies: August 2027 "
+            ];
+            const cscDetailsElement = document.getElementById("csc-details");
+            cscDetailsElement.innerHTML = "";
+            cscDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    cscDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    cscDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showCcDetails() {
+            const ccDetails = [
+                "Google CyberSecurity Professional Certification by Coursera",
+                "Issed: Aug 2024 ",
+                "Valid till: Lifetime "
+            ];
+            const ccDetailsElement = document.getElementById("cc-details");
+            ccDetailsElement.innerHTML = "";
+            ccDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    ccDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    ccDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showSkillDetails(elementId, skills) {
+            const detailsElement = document.getElementById(elementId);
+            detailsElement.innerHTML = "";
+            skills.forEach((skill, index) => {
+                setTimeout(() => {
+                    detailsElement.innerHTML += `<p>${skill}</p>`;
+                    detailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        const programmingLanguages = ["Python", "Java", "SQL", "C", "C++", "Ruby"];
+        const scriptingAutomation = ["PowerShell", "Bash (for Linux scripting)"];
+        const operatingSystems = ["Linux", "Windows", "Ubuntu", "Kali Linux"];
+        const productivityTools = ["Microsoft Excel", "Microsoft Word"];
+        const networkingFirewalls = ["• Protocols: OSI Model, TCP/IP, DHCP, DNS, UDP, SSH, SSL, RDP", "• Tools: Wireshark, pfSense, Network Protocol Analysis, ICS/IDS", "• Firewalls & Security: Firewalls, Intrusion Prevention Systems (IPS), Intrusion Detection Systems (IDS), Snort (for network intrusion detection and prevention)"];
+        const cyberSecurityTools = ["• Network Scanning & Reconnaissance: Nmap, Recon-ng, Ettercap", "• Penetration Testing: Meterpreter, Armitage, Metasploit, Burp Suite", "• Vulnerability Management: Nessus, Vulnerability Assessment Tools", "• Security Automation: SOAR, Splunk, VMware", "• Cryptography: OpenSSL, Brute Force Tools (John the Ripper, XHydra)", "• Data Security: Data Loss Prevention (DLP) Tools"];
+        const cloudPlatforms = ["Microsoft Azure", "AWS", "Google Cloud Platform"];
+        const endpointSecurityProtocols = ["Sophos Endpoint Security", "Endpoint Detection & Response (EDR)"];
+        const securityPractices = ["• Identity & Access Management (IAM)", "• Privileged Access Management (PAM)", "• Risk Management: Risk Analysis, Vulnerability Management, Security Best Practices"];
+
+        function showexperienceDetails(elementId, experience) {
+            const detailsElement = document.getElementById(elementId);
+            detailsElement.innerHTML = "";
+            experience.forEach((experience, index) => {
+                setTimeout(() => {
+                    detailsElement.innerHTML += `<p>${experience}</p>`;
+                    detailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showGsuExpDetails() {
+            const gsuExpDetails = [
+            "Designation: Teaching Assistant - Cyber Security", "Location: University Park, Illinois", "Time Period: Sep 2023 - May 2024", "Project Responsibilities:", "● Assisted in delivering coursework on Information Security, Cyber Security Fundamentals, and Wireless Penetration Testing.", "● Developed and graded assignments; facilitated laboratory sessions and practical exercises.", "● Provided one-on-one mentoring and tutoring on topics like Cloud Integrity Assurance and Social Engineering.", "● Contributed to designing and developing course materials and examinations."
+            ];
+            const gsuExpDetailsElement = document.getElementById("gsu-exp-details");
+            gsuExpDetailsElement.innerHTML = "";
+            gsuExpDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    gsuExpDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    gsuExpDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showCtsExpDetails() {
+            const ctsExpDetails = [
+            "Designation: Programmer Analyst Trainee", "Location: Bangalore, India", "Time Period: Sep 2021 - Aug 2022", "Project Responsibilities:", "● Investigated anomalies and conducted security scans to identify and remediate vulnerabilities.", "● Performed forensic analysis of security incidents and collaborated with threat intelligence teams.", "● Managed and maintained security tools including EDR platforms; applied security incident investigation techniques.", "● Developed documentation for vulnerability management and security alerts; utilized MITRE ATT&CK framework.", "● Deployed and managed security monitoring tools like SIEM, IDS/IPS, and EDR systems."
+            ];
+            const ctsExpDetailsElement = document.getElementById("cts-exp-details");
+            ctsExpDetailsElement.innerHTML = "";
+            ctsExpDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    ctsExpDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    ctsExpDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        function showHslExpDetails() {
+            const hslExpDetails = [
+            "Designation: Cyber Security Analyst Intern", "Location: Vizag, India", "Time Period: May 2019 - Jun 2020", "Project Responsibilities:", "● Monitored and analyzed security alerts; conducted real-time incident detection and response.", "● Managed identity and access control systems; implemented authentication and authorization mechanisms.", "● Coordinated incident response efforts and maintained documentation of incident reports and response activities.", "● Supported and maintained organizational identity governance and Privileged Access Management (PAM) platforms.", "● Monitored network infrastructure for uptime and addressed degradations or outages; tracked and reported cybersecurity incidents."
+            ];
+            const hslExpDetailsElement = document.getElementById("hsl-exp-details");
+            hslExpDetailsElement.innerHTML = "";
+            hslExpDetails.forEach((detail, index) => {
+                setTimeout(() => {
+                    hslExpDetailsElement.innerHTML += `<p>${detail}</p>`;
+                    hslExpDetailsElement.style.opacity = 1;
+                }, index * 1000);
+            });
+        }
+
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const title = ["Hello, Welcome to my Portfolio", "I'm NANDINI CHENNUPATI."];
+            const titleElement = document.getElementById("main-title");
+            const paragraphsElement = document.getElementById("paragraphs");
+
+            let i = 0;
+            let lineIndex = 0;
+
+            function typeTitle() {
+                if (i < title[lineIndex].length) {
+                    titleElement.innerHTML += title[lineIndex].charAt(i);
+                    i++;
+                    setTimeout(typeTitle, 100);
+                } else if (lineIndex < title.length - 1) {
+                    lineIndex++;
+                    i = 0;
+                    titleElement.innerHTML += "<br>";
+                    setTimeout(typeTitle, 100);
+                } else {
+                    titleElement.style.opacity = 1;
+                    paragraphsElement.style.opacity = 1;
+                    revealParagraphs();
+                }
+            }
+
+            function revealParagraphs() {
+                const paragraphs = paragraphsElement.querySelectorAll("p");
+                paragraphs.forEach((paragraph, index) => {
+                    setTimeout(() => {
+                        paragraph.style.opacity = 1;
+                        paragraph.style.transform = "translateY(0)";
+                    }, index * 1000);
+                });
+            }
+
+            document.getElementById("education-heading").style.opacity = 0;
+            titleElement.style.opacity = 1;
+            titleElement.style.transition = "opacity 1s ease";
+            paragraphsElement.style.transition = "opacity 1s ease";
+            paragraphsElement.style.opacity = 0;
+
+            paragraphsElement.querySelectorAll("p").forEach(paragraph => {
+                paragraph.style.opacity = 0;
+                paragraph.style.transform = "translateY(20px)";
+                paragraph.style.transition = "opacity 1s ease, transform 1s ease";
+            });
+
+            showSection('about');
+            typeTitle();
+
+            const educationHeading = ["EDUCATION"];
+            let j = 0;
+
+            function typeEducationHeading() {
+                if (j < educationHeading[0].length) {
+                    document.getElementById("education-heading").innerHTML += educationHeading[0].charAt(j);
+                    j++;
+                    setTimeout(typeEducationHeading, 100);
+                } else {
+                    document.getElementById("education-heading").style.opacity = 1;
+                }
+            }
+
+            typeEducationHeading();
+        });
+    </script>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

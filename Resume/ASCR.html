@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth; /* Enables smooth scrolling */
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6a00;
+            background: linear-gradient(to right, #c1fcd3, #d4b5ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .hero-section,
+        .contact-section,
+        .skills-section {
+            padding: 50px 0;
+        }
+
+        .about-section img {
+            max-width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: -50%;
+        }
+
+        #main-title {
+            display: inline-block;
+            opacity: 0;
+            white-space: nowrap;
+        }
+
+        #paragraphs {
+            opacity: 0;
+        }
+
+        .contact-section img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .contact-item {
+            margin-bottom: 15px;
+        }
+
+        /* New styles for fixed navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content-section {
+            padding-top: 70px; /* Ensure content doesn't hide under the navbar */
+        }
+
+        .skills-section .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .skills-section .card-title a {
+            color: #ff6a00;
+            text-decoration: none;
+        }
+
+        .skills-section .card-title a:hover {
+            color: #c1fcd3;
+        }
+
+        .skill-details {
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+        }
+
+        .skill-details h2 {
+            margin-bottom: 20px;
+            color: #ff6a00;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">NANDINI CHENNUPATI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('about')">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('skills')">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('contact')">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="downloadResume()">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center content-section" id="about">
+        <div class="container">
+            <h1 id="main-title"></h1>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-section content-section" id="about-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\About\main.png" alt="NANDINI CHENNUPATI">
+                </div>
+                <div class="col-md-8">
+                    <div id="paragraphs">
+                        <p>
+                            Hi, I am Nandini, I reside in Chicago, Illinois. I recently graduated from Governors State University, with a Master's degree in Information Technology. Currently, I am actively looking for a Full-Time Cyber Security Analyst Role.
+                        </p>
+                        <p>
+                            About me, I'm Expertised in identifying and analyzing suspicious activities, managing sensitive information, and utilizing a wide range of security tools for comprehensive log and packet analysis. Proficient in conducting vulnerability assessments, penetration testing, and malware analysis to ensure the confidentiality, integrity, and availability of systems, networks, and data. Dedicated to safeguarding organizational assets and enhancing security posture through proactive threat detection and mitigation strategies.
+                        </p>
+                        <p>
+                            I got my certification in CompTIA Security+, to demonstrate my commitment to professional growth in the cybersecurity field. My technical skills include programming languages such as C, C++, Python, Go, Java, and Kotlin; cybersecurity tools like Wireshark, Metasploit, Burp Suite, and Snort; and methodologies encompassing penetration testing, vulnerability scanning, incident response, and threat modeling. I am also proficient in cloud platforms such as AWS and Microsoft Azure, containerization tools like Docker and Kubernetes, and compliance frameworks including NIST, GDPR, and CCPA.
+                        </p>
+                        <p>
+                            I use this website as a platform to showcase my skills and projects. If you find any Role that suits me, I am open and you can connect me via any options listed on this site.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section content-section" id="skills">
+        <div class="container">
+            <h2 class="text-center">Skills</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\PL.png" class="card-img-top" alt="Programming Languages">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('programming-languages')">Programming Languages</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\SA.png" class="card-img-top" alt="Scripting & Automation">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('scripting-automation')">Scripting & Automation</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\OS.png" class="card-img-top" alt="Operating Systems">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('operating-systems')">Operating Systems</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\PT.png" class="card-img-top" alt="Productivity Tools">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('productivity tools')">Productivity Tools</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\NF.png" class="card-img-top" alt="Networking & Firewalls">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('networking & firewalls')">Networking & Firewalls</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\CS.png" class="card-img-top" alt="Cyber Security Tools">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('cyber security tools')">Cyber Security Tools</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\CP.png" class="card-img-top" alt="Cloud Platforms">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('cloud platforms')">Cloud Platforms</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\ES.png" class="card-img-top" alt="Endpoint Security Protocols">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('endpoint security protocols')">Endpoint Security Protocols</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card text-center h-100">
+                        <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Skills\SP.png" class="card-img-top" alt="Security Practices">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" onclick="showSkillDetails('security practices')">Security Practices</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Details Section -->
+    <section class="skill-details content-section" id="skill-details" style="display: none;">
+        <div class="container">
+            <div id="skill-details-content"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section content-section" id="contact">
+        <div class="container text-center">
+            <h2>Contact Me</h2>
+            <div class="contact-item">
+                <a href="tel:+13312227737" class="text-light">
+                    <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Contact\Phone.png" alt="Phone Icon">
+                    +1 331-222-7737
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.linkedin.com/in/nandini-chennupati" class="text-light" target="_blank">
+                    <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Contact\LinkedIn.png" alt="LinkedIn Icon">
+                    LinkedIn
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="mailto:naganandini.chennupati@gmail.com" class="text-light">
+                    <img src="C:\Users\NANDINI\Desktop\My Portfolio\Images\Contact\Gmail.png" alt="Gmail Icon">
+                    naganandini.chennupati@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Script for Typing Effect -->
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('about').style.display = sectionId === 'about' ? 'block' : 'none';
+            document.getElementById('about-content').style.display = sectionId === 'about' ? 'block' : 'none';
+            document.getElementById('skills').style.display = sectionId === 'skills' ? 'block' : 'none';
+            document.getElementById('contact').style.display = sectionId === 'contact' ? 'block' : 'none';
+            document.getElementById('skill-details').style.display = 'none'; // Hide skill details
+        }
+    
+        function showSkillDetails(skillId) {
+            document.getElementById('skills').style.display = 'none';
+            document.getElementById('skill-details').style.display = 'block';
+    
+            const skillDetails = {
+                'programming-languages': `
+                    <h2>Programming Languages</h2>
+                    <ul>
+                    <li>Python</li> <li>Java</li> <li>SQL</li>
+                    </ul>
+                `,
+                'scripting-automation': `
+                    <h2>Scripting & Automation</h2>
+                    <ul>
+                    <li>PowerShell</li> <li>Bash (for Linux scripting)</li> 
+                    </ul>
+                `,
+                'operating-systems': `
+                    <h2>Operating Systems</h2>
+                    <ul>
+                    <li>Linux</li> <li>Windows</li>
+                    </ul>
+                `,
+                'productivity tools': `
+                    <h2>Productivity Tools</h2>
+                    <ul>
+                    <li>Microsft Excel</li> <li>Microsoft Word</li>
+                    </ul>
+                `,
+                'networking & firewalls': `
+                    <h2>Networking & Firewalls</h2>
+                    <ul>
+                    <li>OSI Model</li> <li>TCP/IP</li> <li>Firewalls/IPS/IDS</li> <li>Networking Protocols</li> <li>ICS/IDS</li> <li>pfSense</li> <li>Wireshark</li>
+                    </ul>
+                `,
+                'cyber security tools': `
+                    <h2>Cyber Security Tools</h2>
+                    <ul>
+                    <li>Wireshark</li> <li>Meterpreter</li> <li>Armitage</li> <li>Metasploit</li> <li>Data Loss Prevention (DLP) Tools</li> <li>VMware</li> <li>Nessus</li> <li>Splunk</li> <li>Security Orchestration Automation and Response (SOAR)</li> <li>Burp Suite</li> <li>Nmap</li> <li>Recon-ng</li> <li>Ettercap</li> <li>Cryptography (OpenSSL)</li> <li>Brute Force Tools (John the Ripper, XHydra)</li> <li>Kali Linux</li> <li>Ubuntu</li>
+                    </ul>
+                `,
+                'cloud platforms': `
+                    <h2>Cloud Platforms</h2>
+                    <ul>
+                    <li>Microsoft Azure</li> <li>AWS</li> <li>Google Cloud Platform (GCP)</li>
+                    </ul>
+                `,
+                'endpoint security protocols': `
+                    <h2>Endpoint Security Protocols</h2>
+                    <ul>
+                    <li>Sophos Endpoint Security</li> <li>TCP/IP</li> <li>SSL</li> <li>SSH</li> <li>DHCP</li> <li>UDP</li> <li>DNS</li> <li>RDP</li>
+                    </ul>
+                `,
+                'security practices': `
+                    <h2>Security Practices</h2>
+                    <ul>
+                    <li>Identity and Access Management (IAM)</li> <li>Privileged Access Management (PAM)/li> <li>Vulnerability Management</li> <li>Vulnerability Assessment</li> <li>Risk Analysis</li> <li>Risk Management</li>
+                    </ul>
+                `
+            };
+    
+            const details = skillDetails[skillId] || '<p>Details not available.</p>';
+            const skillDetailsElement = document.getElementById('skill-details-content');
+            skillDetailsElement.innerHTML = details;
+    
+            // Apply delay to each line of text
+            const paragraphs = skillDetailsElement.querySelectorAll('p');
+            paragraphs.forEach((paragraph, index) => {
+                paragraph.style.opacity = 0; // Initially hide paragraphs
+                paragraph.style.transform = 'translateY(20px)'; // Initial transform
+                setTimeout(() => {
+                    paragraph.style.transition = 'opacity 1s ease, transform 1s ease';
+                    paragraph.style.opacity = 1; // Fade in
+                    paragraph.style.transform = 'translateY(0)'; // Move to original position
+                }, index * 1000); // Delay each paragraph by 1 second
+            });
+        }
+    
+        function downloadResume() {
+            window.open("https://drive.google.com/file/d/1ztCXYNskgTOO5n08K6gdmDWxNIyFtYXs/view?usp=drivesdk", "_blank");
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const title = ["Hello :) Welcome to My Portfolio", "I'm NANDINI CHENNUPATI."]; // Split into an array of lines
+            const titleElement = document.getElementById("main-title");
+            const paragraphsElement = document.getElementById("paragraphs");
+    
+            let i = 0;
+            let lineIndex = 0;
+    
+            function typeTitle() {
+                if (i < title[lineIndex].length) {
+                    titleElement.innerHTML += title[lineIndex].charAt(i);
+                    i++;
+                    setTimeout(typeTitle, 100); // Adjust typing speed here
+                } else if (lineIndex < title.length - 1) {
+                    lineIndex++;
+                    i = 0;
+                    titleElement.innerHTML += "<br>"; // Add line break between sentences
+                    setTimeout(typeTitle, 100);
+                } else {
+                    titleElement.style.opacity = 1;
+                    paragraphsElement.style.opacity = 1;
+                    revealParagraphs();
+                }
+            }
+    
+            function revealParagraphs() {
+                const paragraphs = paragraphsElement.querySelectorAll("p");
+                paragraphs.forEach((paragraph, index) => {
+                    setTimeout(() => {
+                        paragraph.style.opacity = 1;
+                        paragraph.style.transform = "translateY(0)";
+                    }, index * 1000); // Delay each paragraph by 1 second
+                });
+            }
+    
+            titleElement.style.opacity = 1;
+            titleElement.style.transition = "opacity 2s ease";
+            paragraphsElement.style.transition = "opacity 1s ease";
+            paragraphsElement.style.opacity = 0;
+    
+            paragraphsElement.querySelectorAll("p").forEach(paragraph => {
+                paragraph.style.opacity = 0;
+                paragraph.style.transform = "translateY(20px)";
+                paragraph.style.transition = "opacity 1s ease, transform 1s ease";
+            });
+    
+            // Show the 'About' section on page load
+            showSection('about');
+            typeTitle();
+        });
+    </script>
+    
+
+    <!-- Bootstrap JS (needed for Bootstrap's interactive components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
